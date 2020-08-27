@@ -13,7 +13,8 @@ headerObject = {}
 for row in csvFile:
 	record = headerObject
 	for field in record:
-		XYZ
+		# XYZ
+	# add record to jsonArray
 
 
 # make API request
