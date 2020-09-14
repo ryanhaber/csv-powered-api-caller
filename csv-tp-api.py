@@ -3,6 +3,15 @@ import json
 import requests
 
 # read CSV
+import csv
+
+with open('scripttestdata1.csv','r') as csv_file:
+    csv_reader = csv.DictReader(csv_file)
+    #print(csv_reader.fieldnames)
+    with open('scripttestdataheaders.csv', 'w') as headerfile:
+        csv_writer = csv.DictWriter(headerfile, fieldnames= csv_reader.fieldnames)
+        csv_writer.writeheader()
+
 # River will write code to do this
 
 # assemble JSON
