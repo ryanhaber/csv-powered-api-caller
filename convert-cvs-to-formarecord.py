@@ -9,7 +9,8 @@ outputfile = sys.argv[2]
 
 convertToDict = csv_to_record.csv_to_record(inputfile)
 
-print("There are ", len(convertToDict), " records.")
+for item in convertToDict:
+	print("Here's an item: ", item)
 
 convertToJson = json.dumps(convertToDict)
 

@@ -19,6 +19,6 @@ def csv_to_record(inputfile):
 			record[column] = {'value' : value}
 
 	# convert back to json string for saving to a file
-	convertToJson = json.dumps(convertToDict)
+	# convertToJson = json.dumps(convertToDict)
 
 	return convertToDict
