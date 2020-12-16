@@ -1,6 +1,7 @@
 import pandas as pd
 import json
 import sys
+import requests
 
 # inputfile is a filename as a string
 
@@ -22,3 +23,27 @@ def csv_to_record(inputfile):
 	# convertToJson = json.dumps(convertToDict)
 
 	return convertToDict
+
+
+# want to add in params for path, model, token, and user
+def api_to_formability(listOfRecords):
+
+	jsonRecords = '{ "records": ' + json.dumps(listOfRecords) + "}"
+
+	url = "https://maryland.formability-staging.enovationallabs.com/api/v2/object_models/5fd24ccdb2fc5d00fbc75cd5/records/"
+
+	headers = {
+		'Authorization': 'Bearer 433d6315912c5bed2ba4b2279d11c436 +JAV3JX9AvqMfiJSa8Zl0F5/QElyVPRQ1aTKMiGoImo=',
+		'Content-Type': 'application/json',
+		'current-user-id': '5d372903dd901e00f8e9818b'
+		}
+
+	response = requests.request("POST", url, headers=headers, data=jsonRecords)
+
+	print("----------------------")
+
+	print(jsonRecords)
+	print(len(listOfRecords), " records in set")
+
+	print("Response: ")
+	print(response.text)
